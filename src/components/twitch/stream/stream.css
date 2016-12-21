@@ -85,15 +85,12 @@ a.game-played {
 
 #stream-info-text-container {
     font-size: 12px;
-    max-height: 50%;
     overflow: hidden;
 }
 
 #stream-info-text-container > p {
     color: var(--color-text);
-    display: flex;
-    flex-shrink: 1;
-    flex-wrap: wrap;
+	max-height: 130px;
 }
 
 #non-main-stream-row {
