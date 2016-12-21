@@ -1,0 +1,68 @@
+#main-container {
+    width: inherit;
+    height: inherit;
+    margin: 0;
+    background-color: var(--color-main);
+    overflow: hidden;
+    display: flex;
+}
+
+#content-container {
+    height: 700px;
+    overflow: hidden;
+    border-top: 1px solid #595959;
+}
+
+.main-column {
+    height: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-y: auto;
+    width: inherit;
+    float: right;
+    border-left: 1px solid #595959;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333333;
+    color: var(--color-text);
+    text-align: center;
+    border-radius: 2px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#snackbar > i {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+#snackbar.show-snackbar {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 3.5s;
+    animation: fadein 0.5s, fadeout 0.5s 3.5s;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+#streams-list {
+    height: 100%;
+    width: 100%;
+}

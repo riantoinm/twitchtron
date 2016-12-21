@@ -1,0 +1,243 @@
+.main-game-played {
+    font-size: 12px;
+}
+
+.game-played, .video-title {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+a.game-played {
+    font-size: 12px;
+    overflow: hidden;
+}
+
+#viewer-time-info {
+    display: flex;
+    position: absolute;
+    bottom: 5px;
+    align-items: flex-end;
+    justify-content: center;
+    margin-left: -10px;
+}
+
+.small-logo-image-container {
+    background-color: var(--color-secondary);
+    height: 57px;
+    width: 57px;
+    min-width: 57px;
+    align-self: center;
+}
+
+.small-logo-image {
+    height: 57px;
+    width: 57px;
+}
+
+.main-stream-row {
+    display: flex;
+    justify-content: center;
+    transition: all 1s;
+    width: 1200px;
+}
+
+.videos-row, .channels-search-row, .channel-home-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.live-stream-container {
+    margin: 15px 15px;
+    max-width: 254px;
+    max-height: 240px;
+    display: inline-block;
+}
+
+#main-info-container {
+    width: 531px;
+    align-self: stretch;
+    background-color: var(--color-secondary-trans);
+    padding: 10px 15px;
+    max-width: 35%;
+    min-width: 30%;
+    position: relative;
+    transition: all 1s;
+}
+
+#stream-info-icon-title {
+    display: flex;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#stream-info-title {
+    padding-left: 10px;
+}
+
+.material-icons.stream-info-icons {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.material-icons.stream-info-icons:hover {
+    color: var(--color-text);
+}
+
+#stream-info-text-container {
+    font-size: 12px;
+    max-height: 50%;
+    overflow: hidden;
+}
+
+#stream-info-text-container > p {
+    color: var(--color-text);
+    display: flex;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+}
+
+#non-main-stream-row {
+    padding-top: 50px;
+    width: 1150px;
+    display: flex;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.non-main-info-container, .video-info-container, .game-info-container {
+    background-color: var(--color-secondary-trans);
+    border-left: 4px var(--color-brand) solid;
+    padding-left: 3px;
+    padding-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.non-main-info-container, .video-info-container, .game-info-container > p {
+    cursor: pointer;
+}
+
+.featured-stream-container {
+    width: 17%;
+    margin: auto auto 20px auto;
+    max-width: 140px;
+    max-height: 120px;
+    transition: 0.3s;
+}
+
+.clickable-stream {
+    box-shadow: none;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.clickable-stream:hover {
+    box-shadow: 0 0 2px 4px var(--color-brand);
+    transition: all 0.3s;
+    cursor: hand;
+}
+
+.display-name {
+    margin-top: 0;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+#stream-title-container {
+    margin-bottom: -10px;
+}
+
+.non-main-display-name {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.stream-title {
+    overflow: hidden;
+}
+
+.preview-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    visibility: hidden;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.material-icons.preview-play-icon {
+    font-size: 34px;
+}
+
+.main-preview-container:hover > div > i {
+    visibility: visible;
+    transition: all 0.3s;
+}
+
+.preview-container {
+    position: relative;
+    transition: all 1s;
+}
+
+#stream-uptime {
+    margin-right: 5px;
+}
+
+.live-stream-image-container {
+    background-color: var(--color-secondary);
+    width: 254px;
+    height: 143px;
+}
+
+.live-stream-image {
+    width: 254px;
+    height: 143px;
+}
+
+.non-main-image-container {
+    background-color: var(--color-secondary);
+    width: 140px;
+    height: 78px;
+}
+
+.non-main-image {
+    width: 140px;
+    height: 78px;
+}
+
+.streams-list-wrapper {
+    width: 1150px;
+    margin: auto;
+}
+
+.main-stream-image-container {
+    background-color: var(--color-secondary);
+    min-height: 323px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.main-stream-image {
+    min-height: 323px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s;
+}
+
+.main-stream-image-placeholder {
+    min-height: 323px;
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.inactive-html {
+    pointer-events: none;
+    cursor: default;
+}

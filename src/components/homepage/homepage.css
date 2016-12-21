@@ -1,0 +1,8 @@
+#homepage-container {
+    height: 100%;
+    width: 100%;
+}
+
+#homepage-container > #no-results-container {
+    padding: 0 20px;
+}

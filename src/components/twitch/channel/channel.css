@@ -1,0 +1,162 @@
+#playback-source-controls-container {
+    width: 60%;
+    margin: 10px auto 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.info-badge {
+    display: inline;
+    padding: 3px 15px;
+    border-radius: 8px;
+    color: var(--color-text);
+    font-weight: bold;
+    margin: 2px;
+}
+
+#partner-badge {
+    background-color: var(--color-partner-badge);
+}
+
+#language-badge {
+    background-color: var(--color-language-badge);
+    color: var(--color-secondary);
+}
+
+#mature-badge {
+    background-color: var(--color-mature-badge);
+}
+
+#live-badge {
+    background-color: var(--color-live-badge);
+}
+
+#past-broadcast-badge {
+    background-color: var(--color-past-broadcast-badge);
+}
+
+.live-channel-logo {
+    height: 80px;
+    width: 80px;
+}
+
+#live-display-name, #past-broadcast-display-name {
+    margin: 0 20px;
+}
+
+#live-display-name > h3, #past-broadcast-display-name > h3 {
+    display: inline;
+}
+
+#live-badges, #past-broadcast-badges, #past-broadcast-game-title, #past-broadcast-display-name {
+    display: inline-block;
+}
+
+#past-broadcast-badges, #live-badges {
+    width: 270px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#main-live-info-container, #main-past-broadcast-info-container {
+    display: flex;
+}
+
+#live-game-title, #past-broadcast-game-title {
+    margin: 20px 20px 0;
+}
+
+#live-viewer-time-info, #past-broadcast-viewer-time-info {
+    display: inline-flex;
+    margin-top: 10px;
+}
+
+.live-meta-info, .past-broadcast-meta-info {
+    margin-top: 5px;
+}
+
+.channel-home-container > .main-stream-row {
+    width: 100%;
+}
+
+#channel-container {
+    height: 100%;
+}
+
+#channel-nav-container {
+    margin-bottom: 10px;
+}
+
+#channel-section-container {
+    padding-bottom: 90px;
+}
+
+.channel-logo-list-full-wrapper {
+    width: 1100px;
+    margin: auto;
+}
+
+.channel-logos-container {
+    width: 148px;
+    height: 168px;
+    margin: 15px 34px;
+    display: inline-block;
+}
+
+.channel-logo-image-container {
+    background-color: var(--color-secondary);
+    width: 148px;
+    height: 148px;
+}
+
+.channel-logo-image {
+    width: 148px;
+    height: 148px;
+}
+
+.channel-main-stream-row {
+    display: flex;
+    justify-content: center;
+    width: inherit;
+}
+
+.dropbtn {
+    background-color: var(--color-brand);
+    padding: 10px 25px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: var(--color-brand-focus);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-text-light);
+    min-width: 120px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 11px;
+}
+
+.dropdown-content a {
+    color: var(--color-secondary);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #e5e5e5;
+}
+
+.dropdown-show {
+    display:block;
+}

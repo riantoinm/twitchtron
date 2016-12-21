@@ -1,0 +1,26 @@
+.top-game-container {
+    width: 191px;
+    margin: 15px 12px;
+    display: inline-block;
+}
+
+.game-name {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.games-list-wrapper {
+    width: 1085px;
+    margin: auto;
+}
+
+.game-image-container {
+    background-color: var(--color-secondary);
+    width: 191px;
+    height: 267px;
+}
+
+.game-image {
+    width: 191px;
+    height: 267px;
+}

@@ -1,0 +1,16 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 580">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6441a4;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>TDM Icon</title>
+  <circle class="cls-1" cx="290" cy="290" r="290"/>
+  <path class="cls-2" d="M183.87,160l-20.15,51.49V421.94h71.64V460h40.3l38.06-38.06h58.21l78.36-78.36V160ZM423.42,330.15l-44.78,44.78H307L268.94,413V374.93H208.49V186.87H423.42Zm-44.78-91.79v78.36H351.78V238.36Zm-71.64,0v78.36H280.13V238.36Z" transform="translate(-10 -10)"/>
+</svg>

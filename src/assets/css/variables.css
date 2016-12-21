@@ -1,0 +1,22 @@
+:root {
+
+    --color-secondary: #3f3f3f;
+    --color-secondary-trans: rgba(63, 63, 63, 0.8);
+    --color-info-overlay: rgba(0, 0, 0, 0.6);
+    --color-main: #4c4c4c;
+    --color-accent: #333333;
+    --color-text: #c1c1c1;
+    --color-text-light: #f2f2f2;
+    --color-text-dark: #9b9b9b;
+    --color-text-hover: #9b9b9b;
+    --color-btn-text: #dbdbdb;
+    --color-brand: #6441A4;
+    --color-brand-focus: #593a92;
+    --color-brand-light: #8C6DC5;
+    --color-separators: #9b9b9b;
+    --color-partner-badge: #0080ff;
+    --color-mature-badge: #181818;
+    --color-language-badge: #ffa500;
+    --color-live-badge: #00b300;
+    --color-past-broadcast-badge: #ff4d4d;
+}

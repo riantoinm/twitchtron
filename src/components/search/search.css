@@ -1,0 +1,86 @@
+::-webkit-input-placeholder {
+    color: grey;
+}
+
+.search {
+    box-shadow: inset 0 0 0 1px #383838;
+    background-color: var(--color-secondary);
+    color: darkgrey;
+    border: none;
+    width: 500px;
+    height: 39px;
+    padding-left: 10px;
+    font-family: 'Lato', monospace;
+    font-size: 13px;
+}
+
+#search-icon {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    color: grey;
+    cursor: default;
+}
+
+#search-form {
+    position: relative;
+    width: 500px;
+    display: inline;
+}
+
+.sub-title {
+    width: inherit;
+    background: linear-gradient(90deg, #323232 60%, #4c4c4c 90%);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    color: darkgrey;
+}
+
+.channel-logo-list-wrapper {
+    width: initial;
+    margin: auto;
+}
+
+#page-nav-search-form {
+    margin: 10px auto;
+    width: 650px;
+    display: flex;
+}
+
+#page-nav-container > button:nth-child(2) {
+    border-left: none;
+    border-right: none;
+}
+
+#page-nav-container > button:nth-child(3) {
+    border-right: none;
+}
+
+#page-nav-container {
+    display: inline;
+}
+
+.page-nav-button {
+    background-color: var(--color-main);
+    border: 1px solid var(--color-secondary);
+    padding: 6px 9px;
+}
+
+.page-nav-button > .page-nav-icon {
+    font-size: 20px;
+}
+
+.page-nav-button:hover > .page-nav-icon {
+    color: var(--color-text-hover);
+}
+
+.page-nav-button:active > .page-nav-icon {
+    color: var(--color-text);
+}
+
+.no-results-text {
+    color: var(--color-text-dark);
+    font-size: 24px;
+    font-family: "Karla", sans-serif;
+}

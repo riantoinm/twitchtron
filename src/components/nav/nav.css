@@ -1,0 +1,110 @@
+.nav-container {
+    height: inherit;
+    border-left: 4px var(--color-brand) solid;
+    border-right: 1px solid #393939;
+    padding-top: 20px;
+    background-color: var(--color-secondary);
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 165px;
+    float: left;
+}
+
+.nav-header {
+    position: relative;
+    font-family: "Karla", sans-serif;
+    text-align: center;
+}
+
+#nav-twitch-logo {
+    display: block;
+    margin: auto;
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+    content: url("../../assets/images/Twitch_White_RGB.png");
+}
+
+.nav-items-container {
+    color: var(--color-text);
+}
+
+.nav-title {
+    font-weight: 300;
+    line-height: 1;
+    margin: 0;
+    font-size: 26px;
+}
+
+.nav-icon {
+    padding: 5px;
+    border-radius: 20px;
+    background-color: var(--color-brand);
+}
+
+.nav-icon:hover {
+    color: var(--color-text);
+}
+
+.nav-item-container {
+    display: flex;
+    padding: 3px 0;
+}
+
+.nav-item-container:hover > a {
+    background: linear-gradient(90deg, #323232 60%, var(--color-secondary) 90%);
+}
+
+.link-highlight-wrapper {
+    display: flex;
+    width: 100%;
+    padding: 5px 0 5px 15px;
+}
+
+.link-highlight-wrapper.active {
+    background: linear-gradient(90deg, #323232 60%, var(--color-secondary) 90%);
+}
+
+.nav-item {
+    padding: 5px 0;
+}
+
+.nav-button {
+    display: block;
+    width: 100%;
+    line-height: 2;
+    text-align: left;
+    font: inherit;
+    font-size: 13px;
+    color: inherit;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    text-transform: none;
+    overflow: visible;
+    margin: auto 0;
+    padding: 1px 6px;
+}
+
+.nav-footer {
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#nav-user-info-container > .channel-logo-container > img {
+    height: 100px;
+    width: 100px;
+    border: 3px solid var(--color-main);
+    border-radius: 3px;
+}
+
+#nav-live-stream-count {
+    margin-right: 5px;
+}
+
+#offline-badge {
+    background-color: var(--color-past-broadcast-badge);
+    margin-top: 10px;
+    display: block;
+}
