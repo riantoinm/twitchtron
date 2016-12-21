@@ -1,14 +1,13 @@
 "use strict";
+import { app, BrowserWindow } from "electron";
+import path from "path";
+import url from "url";
 
 const setupEvents = require("./installers/setupEvents");
 if(setupEvents.handleSquirrelEvent()) {
     //squirrel event handled and app will exit in 1000ms, so don't do anything else
-    return;
+    app.quit();
 }
-
-import { app, BrowserWindow } from "electron";
-import path from "path";
-import url from "url";
 
 const ipc = require("electron").ipcMain;
 
