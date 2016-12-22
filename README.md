@@ -34,7 +34,7 @@ Go full-on theater mode and watch in [VLC Media Player](http://www.videolan.org/
 ![Watch in vlc](../gh-pages/src/assets/images/appScreens/watchInVLC.png?raw=true)
 
 ## Dependencies
-Streams can be watched in app and using PiP without the need for any additional software. On the other hand, watching streams
+<sup>*<sup>Streams can be viewed in app and using PiP without the need for any additional software. On the other hand, watching streams
 in VLC requires 2 pieces of software:
 
 * [VLC Media Player](http://www.videolan.org/vlc/index.html)
