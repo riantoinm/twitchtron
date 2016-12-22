@@ -3,17 +3,14 @@ import { app, BrowserWindow } from "electron";
 import path from "path";
 import url from "url";
 
-const setupEvents = require("./installers/setupEvents");
-if(setupEvents.handleSquirrelEvent()) {
-    //squirrel event handled and app will exit in 1000ms, so don't do anything else
+if(require("electron-squirrel-startup")) {
     app.quit();
 }
 
 const ipc = require("electron").ipcMain;
 
 /** Global references to window objects. Prevents windows from being closed when objects garbage collected */
-let win = null;
-let pipWin = null;
+let win, pipWin, preloadWin = null;
 
 /** Creates the main app window */
 function createWindow() {
@@ -21,6 +18,7 @@ function createWindow() {
         width: 480, height: 520,
         minWidth: 480, minHeight:520,
         maxWidth: 1370, maxHeight: 768,
+        show: false,
         frame: false, resizable: false, movable: true, backgroundColor: "#4c4c4c",
         icon: path.join(__dirname, "/src/assets/images/TDM-Icon.png")
     });
@@ -31,8 +29,10 @@ function createWindow() {
         slashes: true
     }));
 
-    win.once("ready-to-show", () => {
+    win.webContents.on("did-finish-load", () => {
+        preloadWin.close();
         win.show();
+        createPipWindow();
     });
 
     win.on("maximize", () => {
@@ -44,36 +44,59 @@ function createWindow() {
     });
 
     win.on("closed", () => {
-        win = null;
         pipWin = null;
+        win = null;
     });
 }
 
-/**
- * Creates the PiP window. The window loads the specified pathname of the PiP html file
- * @param { string } pathname
- */
-function createPipWindow(pathname) {
+/** Creates the preloader window */
+function createPreloadWindow() {
+    preloadWin = new BrowserWindow({
+        width: 480, height: 300,
+        minWidth: 480, minHeight:300,
+        maxWidth: 480, maxHeight: 300,
+        show: true,
+        frame: false, resizable: false, backgroundColor: "#4c4c4c",
+        icon: path.join(__dirname, "/src/assets/images/TDM-Icon.png")
+    });
+
+    preloadWin.loadURL(url.format({
+        pathname: path.join(__dirname, "/src/components/startup/preload.html"),
+        protocol: "file",
+        slashes: true
+    }));
+
+    preloadWin.webContents.on("did-finish-load", () => {
+        createWindow();
+    });
+
+    preloadWin.on("closed", () => {
+        preloadWin = null;
+    });
+}
+
+/** Creates the PiP window */
+function createPipWindow() {
     pipWin = new BrowserWindow({
         width: 320, height: 180,
         minWidth: 320, minHeight: 180,
         x: 20, y: 20,
-        frame: false, resizable: false, movable: true, alwaysOnTop: true, skipTaskbar: true,
-        icon: path.join(__dirname, "/src/assets/images/TDM-Icon.png")
+        frame: false, resizable: false, movable: true, alwaysOnTop: true, skipTaskbar: true, show: false,
+        icon: path.join(__dirname, "/src/assets/images/TDM-Icon.png"),
     });
 
     pipWin.loadURL(url.format({
-        pathname: pathname,
+        pathname: path.join(__dirname, "/src/components/twitch/channel/pipContainer.html"),
         protocol: "file",
         slashes: true
     }));
 
     pipWin.on("closed", () => {
-       pipWin = null;
+        pipWin = null;
     });
 }
 
-app.on("ready", createWindow);
+app.on("ready", createPreloadWindow);
 
 app.on("window-all-closed", () => {
     if(process.platform !== "darwin") {
@@ -108,7 +131,7 @@ function displayWindow(window) {
 }
 
 /** Listens for ipc message from renderer process. Hides the app window, then calls function to resize it */
-ipc.on("hide-window", function(event, arg) {
+ipc.once("hide-window", function() {
     win.hide();
     setTimeout(() => {
         resizeWindow(win);
@@ -116,7 +139,7 @@ ipc.on("hide-window", function(event, arg) {
 });
 
 /** Listens for ipc message from renderer process. Calls function to display the app window if it is hidden */
-ipc.on("show-window", function(event, arg) {
+ipc.once("show-window", function() {
     displayWindow(win);
 });
 
@@ -137,13 +160,16 @@ ipc.on("window-control", function(event, arg) {
     }
 });
 
-/** Listens for ipc message from renderer process. Calls function to create new PiP window */
-ipc.on("openPip", function(event, arg) {
-    createPipWindow(arg);
+/** Listens for ipc message from renderer process. Sends pip info message to pipWin markup script, then shows the
+ * pip window */
+ipc.on("openPip", function(event, contentType, contentIdentifier) {
+    pipWin.webContents.send("pipInfoReceived", { contentType: contentType, contentIdentifier: contentIdentifier });
+    pipWin.show();
 });
 
-/** Listens for ipc message from renderer process. Calls function to close current PiP window */
+/** Listens for ipc message from renderer process. Sends closed status message to pipWin markup script, then hides the
+ * pip window */
 ipc.on("closePip", function() {
-    pipWin.close();
-    pipWin = null;
+    pipWin.webContents.send("pipCloseReceived");
+    pipWin.hide();
 });

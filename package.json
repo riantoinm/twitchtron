@@ -10,6 +10,7 @@
     "start": "electron ."
   },
   "dependencies": {
+	"electron-squirrel-startup": "^1.0.0",
     "mobx": "^2.6.3",
     "mobx-react": "^4.0.2",
     "react": "^15.3.2",
@@ -27,7 +28,6 @@
   "devDependencies": {
     "electron": "^1.4.3",
     "electron-packager": "^8.4.0",
-    "electron-squirrel-startup": "^1.0.0",
     "electron-winstaller": "^2.5.1"
   }
 }

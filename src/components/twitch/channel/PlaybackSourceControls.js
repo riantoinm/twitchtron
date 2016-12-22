@@ -45,7 +45,7 @@ class PlaybackSourceControls extends React.Component {
                 errorActionObj.showSnackbar(`<i class="material-icons snackbar-icon">info_outline</i>Only 1 stream may be opened using PIP at a time`);
             } else {
                 let streamPlaybackActionObj = new StreamPlaybackActions();
-                streamPlaybackActionObj.openStreamInPip(this.props.store, this.props.contentType, this.props.contentIdentifier, __dirname);
+                streamPlaybackActionObj.openStreamInPip(this.props.store, this.props.contentType, this.props.contentIdentifier);
             }
         }
     }

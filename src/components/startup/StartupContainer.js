@@ -1,7 +1,6 @@
 "use strict";
 import { Link } from "react-router";
 import { observer } from "mobx-react";
-import { setPipToDefault } from "../../utils/fileOps";
 import Hexagons from "./Hexagons";
 import Images from "./Images";
 import Login from "./Login";
@@ -17,10 +16,6 @@ class StartupContainer extends React.Component {
 
         this.startLoginFlow = this.startLoginFlow.bind(this);
         this.showSnackbar = this.showSnackbar.bind(this);
-    }
-
-    componentDidMount() {
-        setPipToDefault();
     }
 
     componentWillUnmount() {

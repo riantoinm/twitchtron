@@ -72,11 +72,3 @@ export const CHANNEL_VIDEOS_LIMIT = 12;
 export const INITIAL_OFFSET = 0;
 export const INITIAL_SEARCH_LIMIT = 5;
 export const HOMEPAGE_STREAMS_LIMIT = 25;
-
-/** PiP defaults */
-export const PIP_LIVE_DEFAULT_HTML = '<body style="margin: 0"><div style="-webkit-app-region: drag; height: 40%"><iframe src="http://player.twitch.tv/?channel=$channelName" frameBorder="0" height="180px" width="320px" scrolling="no" allowfullscreen="true"> </iframe></div></body>';
-export const PIP_VIDEO_DEFAULT_HTML = '<body style="margin: 0"><div style="-webkit-app-region: drag; height: 40%"><iframe src="http://player.twitch.tv/?video=$videoId" frameBorder="0" height="180px" width="320px" scrolling="no" allowfullscreen="true"> </iframe></div></body>';
-export const PIP_LIVE_KEY = "$channelName";
-export const PIP_VIDEO_KEY = "$videoId";
-export const PIP_LIVE_PATHNAME = "/livePictureInPicture.html";
-export const PIP_VIDEO_PATHNAME = "/videoPictureInPicture.html";

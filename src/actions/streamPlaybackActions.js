@@ -1,8 +1,6 @@
 "use strict";
-import * as constants from "../utils/globals";
 import { action } from "mobx";
 import { openInStreamlink } from "../utils/streamlink";
-import { replaceStringInFile, setPipToDefault } from "../utils/fileOps";
 
 const { dialog } = require("electron").remote;
 const ipc = require("electron").ipcRenderer;
@@ -19,47 +17,33 @@ class StreamPlaybackActions {
     }
 
     /**
-     * Requests an update of the PiP html file located in target source directory to contain the specified content type and
-     * content identifier, then updates store to indicate that a PiP stream has been requested to open
+     * Updates pip data in store to based on contentType and contentIdentifier, then sends message to main process to open
+     * the PiP window
      * @param { Object } store
      * @param { string } contentType
      * @param { string } contentIdentifier
-     * @param { string } targetSourceDir
      */
-    @action openStreamInPip(store, contentType, contentIdentifier, targetSourceDir) {
-        let contentKey = "";
-        let contentPathname = "";
-
+    @action openStreamInPip(store, contentType, contentIdentifier) {
         if(contentType === "channel") {
-            contentKey = constants.PIP_LIVE_KEY;
-            contentPathname = constants.PIP_LIVE_PATHNAME;
             store.pipChannelName = store.streamData.channel.display_name;
             store.pipLogoUrl = store.streamData.channel.logo;
         } else {
-            contentKey = constants.PIP_VIDEO_KEY;
-            contentPathname = constants.PIP_VIDEO_PATHNAME;
             store.pipChannelName = store.streamData.channelPastBroadcast.channel.display_name;
             store.pipLogoUrl = store.streamData.channel.logo;
         }
 
-        let targetFilename = targetSourceDir + contentPathname;
-        replaceStringInFile(contentKey, contentIdentifier, targetFilename).then(
-            result => {
-                ipc.send("openPip", targetFilename);
-                store.pipIsActive = true;
-            }
-        );
+        ipc.send("openPip", contentType, contentIdentifier);
+        store.pipIsActive = true;
     }
 
     /**
-     * Updates store to indicate that the active PiP stream has been requested to close, then calls method to reset the
-     * PiP html to its default state
+     * Sends message to main process to close the active PiP window, then updates store to indicate that the active PiP
+     * stream has been requested to close
      * @param { Object } store
      */
     @action closePipStream(store) {
         ipc.send('closePip');
         store.pipIsActive = false;
-        setPipToDefault();
     }
 
     /**

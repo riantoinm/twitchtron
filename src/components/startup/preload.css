@@ -1,0 +1,54 @@
+#startup-container {
+    background-color: #4c4c4c;
+    width: inherit;
+    height: inherit;
+    padding: 20px;
+}
+
+.startup-text {
+    color: #c1c1c1;
+    text-align: center;
+}
+
+#startup-app-name {
+    font-family: 'Nunito', sans-serif;
+    font-size: 56px;
+    font-weight: bold;
+    margin: 0;
+}
+
+#startup-subtext {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+#loader-container {
+    display: flex;
+    height: 50%;
+    margin: auto;
+}
+
+.loader {
+    border-radius: 50%;
+    border-top: 10px solid #6441A4;
+    border-right: 10px solid #c1c1c1;
+    border-bottom: 10px solid #6441A4;
+    border-left: 10px solid #c1c1c1;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#startup-twitch-logo {
+    position: fixed;
+    top: -20px;
+    left: -150px;
+    width: 50%;
+    height: auto;
+}
