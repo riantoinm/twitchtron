@@ -18,7 +18,7 @@ function getInstallerConfig() {
         appDirectory: path.join(outPath, "Twitchtron-win32-ia32/"),
         authors: "Twitchtron",
         noMsi: true,
-        outputDirectory: path.join(outPath, "windows-installer"),
+        outputDirectory: path.join(outPath, "windowsx32-installer"),
         exe: "Twitchtron.exe",
         setupExe: "TwitchtronSetup.exe",
         setupIcon: path.join(rootPath, "src", "assets", "images", "icons", "TDM-Icon.ico")
