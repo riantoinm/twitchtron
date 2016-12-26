@@ -135,7 +135,7 @@ class ChannelContainer extends React.Component {
     render() {
         let store = this.props.store;
         return(
-            <div className="main-wrapper">
+            <div className="page-wrapper">
                 <SearchForm location={ this.state.locationData } store={ store } history={ this.props.route.history } />
                 <div id="channel-container" className="section-container">
                     <ChannelNav activeTab={ this.state.activeTab }

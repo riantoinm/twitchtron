@@ -132,15 +132,13 @@ class LiveStreamsContainer extends React.Component {
         } else {
             let parsedData = store.streamData;
             return(
-                <div id="live-streams-container" className="section-container-inner content-container">
-                    <CustomScroll id="scrollbars">
-                        <div id="live-streams-row" className="scrollbar-inner">
-                            <SectionTitle title={ sectionTitle } />
-                            <div className="streams-list-wrapper">{ this.getStreamsList(parsedData) }</div>
-                        </div>
+                <CustomScroll id="scrollbars">
+                    <div className="scrollbar-inner">
+                        <SectionTitle title={ sectionTitle } />
+                        <div className="streams-list-wrapper">{ this.getStreamsList(parsedData) }</div>
                         <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
-                    </CustomScroll>
-                </div>
+                    </div>
+                </CustomScroll>
             );
         }
     }
@@ -148,15 +146,11 @@ class LiveStreamsContainer extends React.Component {
     render() {
         let store = this.props.store;
         let history = null;
-        let sectionContainerStyle = null;
-        this.props.type === "homepage" ? sectionContainerStyle = { "height": "93%" } : sectionContainerStyle = {};
         this.props.type === "homepage" ? history = this.props.history : history = this.props.route.history;
         return (
-            <div className="main-wrapper">
+            <div className="page-wrapper">
                 { this.props.type === "homepage" ? null : <SearchForm location={ this.props.location.pathname } store={ store } history={ history } /> }
-                <div className="section-container" style={ sectionContainerStyle }>
-                    { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </div>
+                { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
             </div>
         );
     }

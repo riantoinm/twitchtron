@@ -46,7 +46,7 @@ class ChannelVideosStub extends React.Component {
     render() {
         let store = this.props.store;
         return(
-            <div className="videos-row scrollbar-inner">
+            <div className="videos-stub">
                 <SectionTitle title={ constants.TITLE_PAST_BROADCASTS } />
                 <div className="streams-list-wrapper">{ this.getVideosList(store.streamDataChannelVideos) }</div>
             </div>

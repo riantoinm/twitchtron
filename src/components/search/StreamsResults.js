@@ -87,11 +87,9 @@ class StreamsResults extends React.Component {
 
     render() {
         return(
-            <div className="section-container-inner container-with-nav content-container">
-                <CustomScroll id="scrollbars">
-                    { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </CustomScroll>
-            </div>
+            <CustomScroll id="scrollbars">
+                { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
+            </CustomScroll>
         );
     }
 }

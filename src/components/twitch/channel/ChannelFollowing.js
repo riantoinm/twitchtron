@@ -76,7 +76,7 @@ class ChannelFollowing extends React.Component {
             return(
                 <div className="scrollbar-inner">
                     <SectionTitle title={ `Following (${ numberWithCommas(this.props.store.streamDataTotals) })` } />
-                    <div className="channel-logo-list-full-wrapper">{ this.getFollowingList(this.props.store.streamData) }</div>
+                    <div className="streams-list-wrapper">{ this.getFollowingList(this.props.store.streamData) }</div>
                     <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
                 </div>
             );
@@ -85,11 +85,9 @@ class ChannelFollowing extends React.Component {
 
     render() {
         return(
-            <div id="channel-section-container" className="section-container-inner container-with-nav content-container">
-                <CustomScroll id="scrollbars">
-                    { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </CustomScroll>
-            </div>
+            <CustomScroll id="scrollbars">
+                { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
+            </CustomScroll>
         );
     }
 }

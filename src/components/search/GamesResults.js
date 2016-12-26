@@ -6,6 +6,7 @@ import GameInfo from "../twitch/game/GameInfo";
 import GamePreview from "../twitch/game/GamePreview";
 import GeneralErrorComponent from "../errors/GeneralErrorComponent";
 import LoadingComponent from "../common/LoadingComponent";
+import LoadingOffsetComponent from "../common/LoadingOffsetComponent";
 import NoResults from "../common/NoResults";
 import React from "react";
 import SectionTitle from "../common/SectionTitle";
@@ -69,6 +70,7 @@ class GamesResults extends React.Component {
                 <div className="scrollbar-inner">
                     <SectionTitle title={ constants.TITLE_SEARCH_GAMES_RESULTS } />
                     <div className="games-list-wrapper">{ this.getGamesResultsList(this.props.store.streamData) }</div>
+                    <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
                 </div>
             );
         }
@@ -76,11 +78,9 @@ class GamesResults extends React.Component {
 
     render() {
         return(
-            <div className="section-container-inner container-with-nav content-container">
-                <CustomScroll id="scrollbars">
-                    { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </CustomScroll>
-            </div>
+            <CustomScroll id="scrollbars">
+                { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
+            </CustomScroll>
         );
     }
 }

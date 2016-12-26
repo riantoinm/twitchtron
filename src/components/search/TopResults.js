@@ -122,7 +122,7 @@ class TopResults extends React.Component {
             return <LoadingComponent />;
         } else {
             return(
-                <div className="scrollbar-inner">
+                <div id="top-results-container" className="scrollbar-inner">
                     <SectionTitle title={ constants.TITLE_SEARCH_TOP_RESULTS } />
                     <h4 className="sub-title">LIVE</h4>
                     <div className="streams-list-wrapper">{ this.getStreamsResultsMarkup(store.streamData.streams) }</div>

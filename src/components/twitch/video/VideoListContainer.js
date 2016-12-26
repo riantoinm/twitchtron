@@ -78,15 +78,13 @@ class VideoListContainer extends React.Component {
             return <LoadingComponent />;
         } else {
             return(
-                <div className="section-container-inner content-container">
-                    <CustomScroll id="scrollbars">
-                        <div className="videos-row scrollbar-inner">
-                            <SectionTitle title={ constants.TITLE_TOP_VIDEOS } />
-                            <div className="streams-list-wrapper">{ this.getVideosList(store.streamData) }</div>
-                        </div>
-                        <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
-                    </CustomScroll>
-                </div>
+                <CustomScroll id="scrollbars">
+                    <div className="videos-row scrollbar-inner">
+                        <SectionTitle title={ constants.TITLE_TOP_VIDEOS } />
+                        <div className="streams-list-wrapper">{ this.getVideosList(store.streamData) }</div>
+                    </div>
+                    <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
+                </CustomScroll>
             );
         }
     }
@@ -94,11 +92,9 @@ class VideoListContainer extends React.Component {
     render() {
         let store = this.props.store;
         return (
-            <div className="main-wrapper">
+            <div className="page-wrapper">
                 <SearchForm location={ this.props.location.pathname } store={ store } history={ this.props.route.history } />
-                <div className="section-container">
-                    { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </div>
+                { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
             </div>
         );
     }

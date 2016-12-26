@@ -136,7 +136,7 @@ class ChannelHome extends React.Component {
             }
             return (
                 <div className="scrollbar-inner">
-                    <div className="channel-main-stream-row">
+                    <div id="channel-main-stream" className="main-stream-row">
                         {
                             store.isWatchingEmbededStream
                                 ? <StreamEmbed type="live" channelName={ channelName } store={ store }/>
@@ -160,11 +160,9 @@ class ChannelHome extends React.Component {
 
     render() {
         return(
-            <div id="channel-section-container" className="section-container-inner container-with-nav content-container">
-                <CustomScroll id="scrollbars">
-                    { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </CustomScroll>
-            </div>
+            <CustomScroll id="scrollbars">
+                { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
+            </CustomScroll>
         );
     }
 }

@@ -36,10 +36,10 @@ class SettingsContainer extends React.Component {
 
     render() {
         return(
-            <div className="main-wrapper">
+            <div className="page-wrapper">
                 <SearchForm location={ this.props.location.pathname } store={ this.props.store } history={ this.props.route.history } />
-                <SettingsNav activeTab={ this.state.activeTab } loadSettingsContent={ this.setSettingsMarkup } />
                 <div className="section-container">
+                <SettingsNav activeTab={ this.state.activeTab } loadSettingsContent={ this.setSettingsMarkup } />
                     { this.state.renderedContent }
                 </div>
             </div>

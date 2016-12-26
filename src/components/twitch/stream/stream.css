@@ -38,8 +38,7 @@ a.game-played {
 .main-stream-row {
     display: flex;
     justify-content: center;
-    transition: all 1s;
-    width: 1200px;
+    width: inherit;
 }
 
 .videos-row, .channels-search-row, .channel-home-container {
@@ -48,7 +47,7 @@ a.game-played {
 }
 
 .live-stream-container {
-    margin: 15px 15px;
+    margin: 15px 12px;
     max-width: 254px;
     max-height: 240px;
     display: inline-block;
@@ -95,11 +94,9 @@ a.game-played {
 
 #non-main-stream-row {
     padding-top: 50px;
-    width: 1150px;
+    width: inherit;
     display: flex;
     overflow: hidden;
-    margin-left: auto;
-    margin-right:auto;
 }
 
 .non-main-info-container, .video-info-container, .game-info-container {
@@ -205,7 +202,7 @@ a.game-played {
 }
 
 .streams-list-wrapper {
-    width: 1150px;
+    width: inherit;
     margin: auto;
 }
 

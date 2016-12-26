@@ -65,10 +65,10 @@ export const TITLE_HOMEPAGE_LIVE = "Streams You Follow";
 
 /** stream fetch limit values */
 export const FEATURED_LIMIT = 6;
-export const DEFAULT_STREAMS_LIMIT = 25;
-export const GAMES_LIMIT = 25;
-export const CHANNELS_LIMIT = 25;
-export const CHANNEL_VIDEOS_LIMIT = 12;
+export const DEFAULT_STREAMS_LIMIT = 35;
+export const GAMES_LIMIT = 35;
+export const CHANNELS_LIMIT = 35;
+export const CHANNEL_VIDEOS_LIMIT = 25;
 export const INITIAL_OFFSET = 0;
 export const INITIAL_SEARCH_LIMIT = 5;
-export const HOMEPAGE_STREAMS_LIMIT = 25;
+export const HOMEPAGE_STREAMS_LIMIT = 35;

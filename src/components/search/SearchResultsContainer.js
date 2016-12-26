@@ -93,7 +93,7 @@ class SearchResultsContainer extends React.Component {
     render() {
         let store = this.props.store;
         return (
-            <div className="main-wrapper">
+            <div className="page-wrapper">
                 <SearchForm location={ this.state.locationData } store={ store } history={ this.props.route.history } />
                     <div className="section-container">
                         <SearchResultsNav activeTab={ this.state.activeTab }

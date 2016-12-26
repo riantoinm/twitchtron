@@ -99,15 +99,13 @@ class GameListContainer extends React.Component {
         } else {
             let parsedData = store.streamData;
             return(
-                <div className="section-container-inner content-container">
-                    <CustomScroll id="scrollbars">
-                        <div className="top-games-row scrollbar-inner">
-                            <SectionTitle title={ sectionTitle } />
-                            <div className="games-list-wrapper">{ this.getGamesList(parsedData) }</div>
-                        </div>
-                        <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
-                    </CustomScroll>
-                </div>
+                <CustomScroll id="scrollbars">
+                    <div className="top-games-row scrollbar-inner">
+                        <SectionTitle title={ sectionTitle } />
+                        <div className="streams-list-wrapper">{ this.getGamesList(parsedData) }</div>
+                    </div>
+                    <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
+                </CustomScroll>
             );
         }
     }
@@ -115,11 +113,9 @@ class GameListContainer extends React.Component {
     render() {
         let store = this.props.store;
         return (
-            <div className="main-wrapper">
+            <div className="page-wrapper">
                 <SearchForm location={ this.props.location.pathname } store={ store } history={ this.props.route.history } />
-                <div className="section-container">
-                    { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </div>
+                { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
             </div>
         );
     }

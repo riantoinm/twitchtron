@@ -101,7 +101,7 @@ class HomepageContainer extends React.Component {
     render() {
         let store = this.props.store;
         return (
-            <div className="main-wrapper">
+            <div className="page-wrapper">
                 <SearchForm location={ this.props.location.pathname } store={ store } history={ this.props.route.history } />
                 { this.getUserTypeMarkup() }
             </div>

@@ -109,30 +109,28 @@ class FeaturedStreamsPage extends React.Component {
             } else {
                 let parsedData = store.streamData;
                 return(
-                    <div className="section-container-inner content-container">
-                        <CustomScroll id="scrollbars">
-                            <div className="scrollbar-inner">
-                                <SectionTitle title={ constants.TITLE_FEATURED_STREAMS } />
-                                <div className="main-stream-row">
-                                    { this.getMainStreamRow(parsedData) }
-                                    <MainStreamInfo createdAt={ parsedData[0].stream.created_at }
-                                                    displayName={ parsedData[0].stream.channel.display_name }
-                                                    followers={ parsedData[0].stream.channel.followers }
-                                                    game={ parsedData[0].stream.game }
-                                                    logo={ parsedData[0].stream.channel.logo }
-                                                    streamText={ parsedData[0].text }
-                                                    title={ parsedData[0].title }
-                                                    viewers={ parsedData[0].stream.viewers }
-                                                    channelName={ parsedData[0].stream.channel.name }
-                                                    store={ store }
-                                    />
-                                </div>
-                                <div id="non-main-stream-row">
-                                    { this.getNonMainStreamRow(parsedData) }
-                                </div>
+                    <CustomScroll id="scrollbars">
+                        <div className="scrollbar-inner">
+                            <SectionTitle title={ constants.TITLE_FEATURED_STREAMS } />
+                            <div className="main-stream-row">
+                                { this.getMainStreamRow(parsedData) }
+                                <MainStreamInfo createdAt={ parsedData[0].stream.created_at }
+                                                displayName={ parsedData[0].stream.channel.display_name }
+                                                followers={ parsedData[0].stream.channel.followers }
+                                                game={ parsedData[0].stream.game }
+                                                logo={ parsedData[0].stream.channel.logo }
+                                                streamText={ parsedData[0].text }
+                                                title={ parsedData[0].title }
+                                                viewers={ parsedData[0].stream.viewers }
+                                                channelName={ parsedData[0].stream.channel.name }
+                                                store={ store }
+                                />
                             </div>
-                        </CustomScroll>
-                    </div>
+                            <div id="non-main-stream-row">
+                                { this.getNonMainStreamRow(parsedData) }
+                            </div>
+                        </div>
+                    </CustomScroll>
                 );
             }
         }
@@ -141,11 +139,9 @@ class FeaturedStreamsPage extends React.Component {
     render() {
         let store = this.props.store;
         return (
-            <div className="main-wrapper">
+            <div className="page-wrapper">
                 <SearchForm location={ this.props.location.pathname } store={ store } history={ this.props.route.history } />
-                <div className="section-container">
-                    { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </div>
+                { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
             </div>
         );
     }

@@ -17,7 +17,6 @@ function createWindow() {
     win = new BrowserWindow({
         width: 480, height: 520,
         minWidth: 480, minHeight:520,
-        maxWidth: 1370, maxHeight: 768,
         show: false,
         frame: false, resizable: false, movable: true, backgroundColor: "#4c4c4c",
         icon: path.join(__dirname, "/src/assets/images/TDM-Icon.png")
@@ -34,6 +33,8 @@ function createWindow() {
         win.show();
         createPipWindow();
     });
+
+    win.webContents.openDevTools(); //TODO remove for production
 
     win.on("maximize", () => {
         win.webContents.send("sizeChange", { isMax: true });

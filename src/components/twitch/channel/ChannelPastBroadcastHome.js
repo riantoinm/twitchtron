@@ -1,6 +1,6 @@
 "use strict";
 import { observer } from "mobx-react";
-import ChannelVideosList from "./ChannelVideosStub";
+import ChannelVideosStub from "./ChannelVideosStub";
 import CustomScroll from "../../common/CustomScroll";
 import GeneralErrorComponent from "../../errors/GeneralErrorComponent";
 import LoadingComponent from "../../common/LoadingComponent";
@@ -76,7 +76,7 @@ class ChannelPastBroadcastHome extends React.Component {
 
             return(
                 <div className="scrollbar-inner">
-                    <div className="channel-main-stream-row">
+                    <div id="channel-main-stream" className="main-stream-row">
                         <StreamEmbed type="pastBroadcast" channelName={ streamDataChannelKey.name } videoId={ this.props.videoId } store={ store } />
                         { renderMarkup }
                     </div>
@@ -84,7 +84,7 @@ class ChannelPastBroadcastHome extends React.Component {
                                             contentType="video"
                                             contentUrl={ streamDataPastBroadcastKey.url }
                                             store={ store } />
-                    <ChannelVideosList store={ store } history={ this.props.history } />
+                    <ChannelVideosStub store={ store } history={ this.props.history } />
                 </div>
             );
         }
@@ -92,11 +92,9 @@ class ChannelPastBroadcastHome extends React.Component {
 
     render() {
         return(
-            <div id="channel-section-container" className="section-container-inner container-with-nav content-container">
-                <CustomScroll id="scrollbars">
-                    { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </CustomScroll>
-            </div>
+            <CustomScroll id="scrollbars">
+                { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
+            </CustomScroll>
         );
     }
 }

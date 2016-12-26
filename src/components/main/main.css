@@ -8,7 +8,7 @@
 }
 
 #content-container {
-    height: 700px;
+    height: inherit;
     overflow: hidden;
     border-top: 1px solid #595959;
 }
@@ -19,8 +19,9 @@
     padding-right: 0;
     overflow-y: auto;
     width: inherit;
-    float: right;
     border-left: 1px solid #595959;
+    display: flex;
+    flex-direction: column;
 }
 
 #snackbar {

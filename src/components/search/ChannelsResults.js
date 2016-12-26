@@ -76,7 +76,7 @@ class ChannelsResults extends React.Component {
             return(
                 <div className="scrollbar-inner">
                     <SectionTitle title={ `${ constants.TITLE_SEARCH_CHANNELS_RESULTS } (${ numberWithCommas(store.streamDataTotals) })` } />
-                    <div className="channel-logo-list-full-wrapper">{ this.getChannelsResultsList(store.streamData) }</div>
+                    <div className="streams-list-wrapper">{ this.getChannelsResultsList(store.streamData) }</div>
                     <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
                 </div>
             );
@@ -85,11 +85,9 @@ class ChannelsResults extends React.Component {
 
     render() {
         return(
-            <div className="section-container-inner container-with-nav content-container">
-                <CustomScroll id="scrollbars">
-                    { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
-                </CustomScroll>
-            </div>
+            <CustomScroll id="scrollbars">
+                { this.props.store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
+            </CustomScroll>
         );
     }
 }

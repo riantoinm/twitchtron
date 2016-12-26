@@ -1,5 +1,7 @@
 #settings-section-container {
-    padding: 100px 10px 0;
+    padding-top: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #streamlink-setting {
@@ -7,6 +9,8 @@
     height: inherit;
     flex-wrap: wrap;
     justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .setting-title {

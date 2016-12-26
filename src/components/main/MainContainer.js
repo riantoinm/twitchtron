@@ -92,9 +92,7 @@ class MainContainer extends React.Component {
                 <NavContainer store={ store } />
                 <div className="main-column">
                     <WindowControlsContainer store={ store } />
-                    <div id="content-container">
-                        { React.cloneElement(this.props.children, { store: store }) }
-                    </div>
+                    { React.cloneElement(this.props.children, { store: store }) }
                 </div>
                 <div id="snackbar"></div>
             </div>
