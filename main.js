@@ -34,8 +34,6 @@ function createWindow() {
         createPipWindow();
     });
 
-    win.webContents.openDevTools(); //TODO remove for production
-
     win.on("maximize", () => {
         win.webContents.send("sizeChange", { isMax: true });
     });
