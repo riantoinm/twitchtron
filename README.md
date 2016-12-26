@@ -5,8 +5,8 @@ Bring the core viewing features of the Twitch platform right to your desktop, wi
 
 ## Downloads
 **Note:** Currently, the Windows installer is unsigned, so this may result in a warning from anti-virus software or IE.
-* [Windows (64 bit)](http://github.com/Tanexion/Twitchtron/releases/download/v1.0.0/TwitchtronSetup-x64.exe)
-* [Windows](http://github.com/Tanexion/Twitchtron/releases/download/v1.0.0/TwitchtronSetup-x32.exe)
+* [Windows (64 bit)](http://github.com/Tanexion/Twitchtron/releases/download/v1.0.1/TwitchtronSetup-x64.exe)
+* [Windows](http://github.com/Tanexion/Twitchtron/releases/download/v1.0.1/TwitchtronSetup-x32.exe)
 * MacOS (Coming soon)
 
 ## Features
