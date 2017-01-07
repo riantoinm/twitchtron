@@ -146,9 +146,17 @@ class LiveStreamsContainer extends React.Component {
     render() {
         let store = this.props.store;
         let history = null;
-        this.props.type === "homepage" ? history = this.props.history : history = this.props.route.history;
+        let pageWrapperId = "";
+
+        if(this.props.type === "homepage") {
+            history = this.props.history;
+            pageWrapperId = "homepage";
+        } else {
+            history = this.props.route.history;
+        }
+
         return (
-            <div className="page-wrapper">
+            <div className="page-wrapper" id={ pageWrapperId }>
                 { this.props.type === "homepage" ? null : <SearchForm location={ this.props.location.pathname } store={ store } history={ history } /> }
                 { store.requestError ? <GeneralErrorComponent /> : this.getRenderMarkup() }
             </div>

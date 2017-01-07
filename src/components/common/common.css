@@ -220,6 +220,10 @@ img {
     border-top: 1px solid #595959;
 }
 
+.page-wrapper#homepage {
+    border-top: none;
+}
+
 .sub-nav-container {
     width: 100%;
     height: 60px;
