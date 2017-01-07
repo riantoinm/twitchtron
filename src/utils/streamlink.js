@@ -1,5 +1,5 @@
 "use strict";
-import { STREAMLINK_HEADER_ARG, STREAMLINK_CLIENTID_ARG } from "../utils/globals";
+import { STREAMLINK_HEADER_ARG } from "../utils/globals";
 import ErrorActions from "../actions/errorActions";
 
 const exec = require("child_process").exec;
@@ -44,7 +44,7 @@ export function openInStreamlink(streamUrl, quality) {
 function connectToStreamlinkPath(streamUrl, quality) {
     let errorActionObj = new ErrorActions();
 
-    exec(`streamlink ${ STREAMLINK_HEADER_ARG} ${ STREAMLINK_CLIENTID_ARG } ${ streamUrl } ${ quality }`, (error, stdout, stderr) => {
+    exec(`streamlink ${ STREAMLINK_HEADER_ARG } ${ streamUrl } ${ quality }`, (error, stdout, stderr) => {
         if(error) {
             errorActionObj.showSnackbar(`<i class="material-icons snackbar-icon">info_outline</i>Could not open the requested stream in VLC`);
         }
@@ -60,7 +60,7 @@ function connectToStreamlinkPath(streamUrl, quality) {
 function connectToStreamlinkDirec(streamUrl, quality) {
     let errorActionObj = new ErrorActions();
 
-    execFile(localStorage.streamlinkLocation, [STREAMLINK_HEADER_ARG, STREAMLINK_CLIENTID_ARG, streamUrl, quality], (error, stdout, stderr) => {
+    execFile(localStorage.streamlinkLocation, [STREAMLINK_HEADER_ARG, streamUrl, quality], (error, stdout, stderr) => {
         if(error) {
             errorActionObj.showSnackbar(`<i class="material-icons snackbar-icon">info_outline</i>Could not open the requested stream in VLC`);
         }

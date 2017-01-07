@@ -83,7 +83,8 @@ class ChannelPastBroadcastHome extends React.Component {
                     <PlaybackSourceControls contentIdentifier={ streamDataPastBroadcastKey._id }
                                             contentType="video"
                                             contentUrl={ streamDataPastBroadcastKey.url }
-                                            store={ store } />
+                                            store={ store }
+                                            channelName={ streamDataPastBroadcastKey.channel.name } />
                     <ChannelVideosStub store={ store } history={ this.props.history } />
                 </div>
             );

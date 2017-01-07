@@ -4,16 +4,27 @@ import { openInStreamlink } from "../utils/streamlink";
 
 const { dialog } = require("electron").remote;
 const ipc = require("electron").ipcRenderer;
+const shell = require("electron").shell;
 
 /** Handles opening and closing live streams */
 class StreamPlaybackActions {
 
     /**
+     * Opens specified Twitch chat url with the channelName in the user's default browser
+     * @param { String } channelName - name of the channel for which to open the chat window
+     */
+    __openChatInBrowser(channelName) {
+        shell.openExternal(`https://www.twitch.tv/${ channelName }/chat`);
+    }
+
+    /**
      * Updates store to indicate that an embedded stream has been requested to open
      * @param { Object } store
+     * @param { String } channelName
      */
-    @action openStreamInApp(store) {
+    @action openStreamInApp(store, channelName) {
         store.isWatchingEmbededStream = true;
+        this.__openChatInBrowser(channelName);
     }
 
     /**
@@ -22,8 +33,9 @@ class StreamPlaybackActions {
      * @param { Object } store
      * @param { string } contentType
      * @param { string } contentIdentifier
+     * @param { String } channelName
      */
-    @action openStreamInPip(store, contentType, contentIdentifier) {
+    @action openStreamInPip(store, contentType, contentIdentifier, channelName) {
         if(contentType === "channel") {
             store.pipChannelName = store.streamData.channel.display_name;
             store.pipLogoUrl = store.streamData.channel.logo;
@@ -34,6 +46,7 @@ class StreamPlaybackActions {
 
         ipc.send("openPip", contentType, contentIdentifier);
         store.pipIsActive = true;
+        this.__openChatInBrowser(channelName);
     }
 
     /**
@@ -50,9 +63,11 @@ class StreamPlaybackActions {
      * Sends request to streamlink helper to open requested stream url in VLC at specified quality
      * @param { string } streamUrl
      * @param { string } quality
+     * @param { String } channelName
      */
-    @action openStreamInVlc(streamUrl, quality) {
+    @action openStreamInVlc(streamUrl, quality, channelName) {
         openInStreamlink(streamUrl, quality);
+        this.__openChatInBrowser(channelName);
     }
 
     /**

@@ -1,5 +1,6 @@
 "use strict";
 import { Link } from "react-router";
+import { numberWithCommas } from "../../utils/numberOps";
 import { observer } from "mobx-react";
 import ChannelLogo from "../twitch/channel/ChannelLogo";
 import ErrorActions from "../../actions/errorActions";
@@ -51,7 +52,7 @@ class NavFooter extends React.Component {
             return(
                 <p>
                     <Link to="/main/userHomepage" id="nav-live-stream-count" className="clickable-link" onClick={ this.checkOnlineStatus }>
-                        { `${ followingStreamsLiveCount }` } channels
+                        { `${ numberWithCommas(followingStreamsLiveCount) }` } channels
                     </Link>
                     you follow are live now!
                 </p>

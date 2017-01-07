@@ -33,7 +33,7 @@ class PlaybackSourceControls extends React.Component {
     openInAppBtnClicked() {
         if(this.props.store.isOnline) {
             let streamPlaybackActionObj = new StreamPlaybackActions();
-            streamPlaybackActionObj.openStreamInApp(this.props.store);
+            streamPlaybackActionObj.openStreamInApp(this.props.store, this.props.channelName);
         }
     }
 
@@ -45,7 +45,7 @@ class PlaybackSourceControls extends React.Component {
                 errorActionObj.showSnackbar(`<i class="material-icons snackbar-icon">info_outline</i>Only 1 stream may be opened using PIP at a time`);
             } else {
                 let streamPlaybackActionObj = new StreamPlaybackActions();
-                streamPlaybackActionObj.openStreamInPip(this.props.store, this.props.contentType, this.props.contentIdentifier);
+                streamPlaybackActionObj.openStreamInPip(this.props.store, this.props.contentType, this.props.contentIdentifier, this.props.channelName);
             }
         }
     }
@@ -54,7 +54,7 @@ class PlaybackSourceControls extends React.Component {
     openInVlcBtnClicked(quality) {
         if(this.props.store.isOnline) {
             let streamPlaybackActionObj = new StreamPlaybackActions();
-            streamPlaybackActionObj.openStreamInVlc(this.props.contentUrl, quality);
+            streamPlaybackActionObj.openStreamInVlc(this.props.contentUrl, quality, this.props.channelName);
         }
     }
 

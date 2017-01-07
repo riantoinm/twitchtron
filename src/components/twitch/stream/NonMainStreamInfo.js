@@ -46,11 +46,12 @@ class NonMainStreamInfo extends React.Component {
 
     render() {
         let game = checkGame(this.props.game);
+        let viewersText = this.props.views === 1 ? "viewer" : "viewers";
 
         let displayNameMarkup = null;
         this.props.isFeatured
             ? displayNameMarkup = <p className="non-main-display-name">{ `${ this.props.displayName }` }</p>
-            : displayNameMarkup = <p className="non-main-display-name">{ `${ this.props.displayName } - ${ numberWithCommas(this.props.views) } viewers` }</p>;
+            : displayNameMarkup = <p className="non-main-display-name">{ `${ this.props.displayName } - ${ numberWithCommas(this.props.views) } ${ viewersText }` }</p>;
 
         return(
             <div className="non-main-info-container">

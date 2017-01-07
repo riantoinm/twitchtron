@@ -139,8 +139,8 @@ class ChannelHome extends React.Component {
                     <div id="channel-main-stream" className="main-stream-row">
                         {
                             store.isWatchingEmbededStream
-                                ? <StreamEmbed type="live" channelName={ channelName } store={ store }/>
-                                : <MainStreamPreview channelName={ channelName } image={ image } type="channel"/>
+                                ? <StreamEmbed type="live" channelName={ channelName } store={ store } />
+                                : <MainStreamPreview channelName={ channelName } image={ image } type="channel" />
                         }
                         { markupType }
                     </div>
@@ -149,10 +149,11 @@ class ChannelHome extends React.Component {
                             ? <PlaybackSourceControls contentIdentifier={ channelName }
                                                       contentType="channel"
                                                       contentUrl={ streamDataChannelKey.url }
-                                                      store={ store }/>
+                                                      store={ store }
+                                                      channelName={ channelName } />
                             : null
                     }
-                    <ChannelVideosStub store={ store } history={ this.props.history }/>
+                    <ChannelVideosStub store={ store } history={ this.props.history } />
                 </div>
             );
         }

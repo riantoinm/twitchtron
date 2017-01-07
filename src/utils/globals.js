@@ -10,8 +10,7 @@ export const ACCESS_DENIED_URI = "https://localhost/?error=access_denied&error_d
 export const AUTH_URL = `https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=${ CLIENT_ID }&redirect_uri=${ REDIRECT_URI }&scope=${ DEFAULT_SCOPES }`;
 
 /** streamlink */
-export const STREAMLINK_HEADER_ARG = "--http-header";
-export const STREAMLINK_CLIENTID_ARG = "Client-ID=" + CLIENT_ID;
+export const STREAMLINK_HEADER_ARG = `--http-header Client-ID=${ CLIENT_ID }`;
 export const STREAMLINK_QUALITY_HIGH = "best,source,720p,high,medium,low,worst,mobile";
 export const STREAMLINK_QUALITY_MED = "medium,high,low,best,720p,worst,source,mobile";
 export const STREAMLINK_QUALITY_LOW = "low,mobile,medium,worst,high,720p,source,best";
