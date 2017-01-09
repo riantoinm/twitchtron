@@ -18,7 +18,7 @@ function createWindow() {
         width: 480, height: 520,
         minWidth: 480, minHeight:520,
         show: false,
-        frame: false, resizable: false, movable: true, backgroundColor: "#4c4c4c",
+        frame: false, resizable: true, movable: true, backgroundColor: "#4c4c4c",
         icon: path.join(__dirname, "/src/assets/images/TDM-Icon.png")
     });
 
@@ -53,7 +53,6 @@ function createPreloadWindow() {
     preloadWin = new BrowserWindow({
         width: 480, height: 300,
         minWidth: 480, minHeight:300,
-        maxWidth: 480, maxHeight: 300,
         show: true,
         frame: false, resizable: false, backgroundColor: "#4c4c4c",
         icon: path.join(__dirname, "/src/assets/images/TDM-Icon.png")
@@ -111,21 +110,21 @@ app.on("activate", () => {
 
 /**
  * Centers and resizes the specified window to a set of max dimensions
- * @param { Object } window
+ * @param { Object } win
  */
-function resizeWindow(window) {
-    window.setMinimumSize(1024, 768);
-    window.setSize(1024, 768);
-    window.center();
+function resizeWindow(win) {
+    win.setMinimumSize(1024, 768);
+    win.setSize(1024, 768);
+    win.center();
 }
 
 /**
  * Shows the specified window if it has been hidden
- * @param { Object } window
+ * @param { Object } win
  */
-function displayWindow(window) {
+function displayWindow(win) {
     setTimeout(() => {
-        window.show();
+        win.show();
     }, 1000);
 }
 

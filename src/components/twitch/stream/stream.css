@@ -39,6 +39,8 @@ a.game-played {
     display: flex;
     justify-content: center;
     width: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .videos-row, .channels-search-row, .channel-home-container {
@@ -48,9 +50,16 @@ a.game-played {
 
 .live-stream-container {
     margin: 15px 12px;
-    max-width: 254px;
-    max-height: 240px;
-    display: inline-block;
+    flex: 1 0 auto;
+    max-width: 50%;
+    width: 254px;
+}
+
+.live-stream-placeholder {
+    margin: 0 12px;
+    flex: 1 0 auto;
+    max-width: 50%;
+    width: 254px;
 }
 
 #main-info-container {
@@ -92,11 +101,14 @@ a.game-played {
 	max-height: 130px;
 }
 
+#main-stream-row {
+    flex-wrap: nowrap;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 #non-main-stream-row {
-    padding-top: 50px;
-    width: inherit;
-    display: flex;
-    overflow: hidden;
+    margin-top: 50px;
 }
 
 .non-main-info-container, .video-info-container, .game-info-container {
@@ -114,10 +126,10 @@ a.game-played {
 }
 
 .featured-stream-container {
-    width: 17%;
-    margin: auto auto 20px auto;
-    max-width: 140px;
-    max-height: 120px;
+    margin: 17px;
+    flex: 1 0 auto;
+    max-width: 50%;
+    width: 140px;
     transition: 0.3s;
 }
 
@@ -171,8 +183,9 @@ a.game-played {
 }
 
 .preview-container {
-    position: relative;
     transition: all 1s;
+    flex: 1 0 auto;
+    width: 360px;
 }
 
 #stream-uptime {
@@ -181,57 +194,112 @@ a.game-played {
 
 .live-stream-image-container {
     background-color: var(--color-secondary);
-    width: 254px;
-    height: 143px;
+    height: 0;
+    display: block;
+    padding-bottom: 56.5%;
+    overflow: hidden;
+    position: relative;
 }
 
 .live-stream-image {
-    width: 254px;
-    height: 143px;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .non-main-image-container {
     background-color: var(--color-secondary);
-    width: 140px;
-    height: 78px;
+    height: 0;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 55.7%;
 }
 
 .non-main-image {
-    width: 140px;
-    height: 78px;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .streams-list-wrapper {
-    width: inherit;
-    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    min-width: 100%;
+
 }
 
 .main-stream-image-container {
     background-color: var(--color-secondary);
-    min-height: 323px;
     position: relative;
-    top: 0;
-    left: 0;
+    height: 0;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 55.7%;
 }
 
 .main-stream-image {
-    min-height: 323px;
+    transition: all 0.5s;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    transition: all 0.5s;
+    bottom: 0;
+    right: 0;
 }
 
 .main-stream-image-placeholder {
-    min-height: 323px;
     position: relative;
-    top: 0;
-    left: 0;
     opacity: 1;
     transition: all 0.5s;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .inactive-html {
     pointer-events: none;
     cursor: default;
+}
+
+.stream-embed {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.stream-embed-wrapper {
+    height: 0;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 55.7%;
+}
+
+.stream-embed-container {
+    flex: 1 0 auto;
+    width: 360px;
 }

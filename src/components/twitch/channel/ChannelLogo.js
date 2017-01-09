@@ -43,16 +43,23 @@ class ChannelLogo extends React.Component {
 
     render() {
         let logoImageContainerClassName, logoImageClassName = null;
-        this.props.type === "navLogo" ? logoImageContainerClassName = "channel-logo-container" : logoImageContainerClassName = "channel-logo-image-container";
-        this.props.type === "navLogo" ? logoImageClassName = "" : logoImageClassName = "channel-logo-image";
+
+        if(this.props.type === "navLogo") {
+            logoImageContainerClassName = "channel-logo-container";
+            logoImageClassName = "";
+        } else {
+            logoImageContainerClassName = "channel-logo-image-container";
+            logoImageClassName = "channel-logo-image";
+        }
+
         return(
-            <div className={ logoImageContainerClassName } id={ this.props.channelName } onClick={ this.handleLinkToChannel }>
+            <a className={ logoImageContainerClassName } id={ this.props.channelName } onClick={ this.handleLinkToChannel }>
                 <img className={ logoImageClassName }
                      id={ this.props.channelName }
                      src={ checkLogo(this.props.image) }
                      onError={ this.replaceMissingImage }
                 />
-            </div>
+            </a>
         );
     }
 }

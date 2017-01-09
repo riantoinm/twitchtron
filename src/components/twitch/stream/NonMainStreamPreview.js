@@ -38,13 +38,19 @@ class NonMainStreamPreview extends React.Component {
 
     render() {
         let imgTypeClassName, containerTypeClassName = "";
-        this.props.type === "featured" ? imgTypeClassName = "non-main-image" : imgTypeClassName = "live-stream-image";
-        this.props.type === "featured" ? containerTypeClassName = "non-main-image-container" : containerTypeClassName = "live-stream-image-container";
+
+        if(this.props.type === "featured") {
+            imgTypeClassName = "non-main-image";
+            containerTypeClassName = "non-main-image-container";
+        } else {
+            imgTypeClassName = "live-stream-image";
+            containerTypeClassName = "live-stream-image-container";
+        }
 
         return(
-            <div className={ containerTypeClassName } onClick={ this.handleLinkToChannel }>
+            <a className={ containerTypeClassName } onClick={ this.handleLinkToChannel }>
                 <img className={ imgTypeClassName } id={ this.props.channelName } src={ this.props.image } onError={ this.replaceMissingImage } />
-            </div>
+            </a>
         );
     }
 }

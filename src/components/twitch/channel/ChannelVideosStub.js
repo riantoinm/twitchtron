@@ -14,6 +14,7 @@ class ChannelVideosStub extends React.Component {
         super(props);
 
         this.getVideosList = this.getVideosList.bind(this);
+        this.getPlaceholders = this.getPlaceholders.bind(this);
     }
 
     /**
@@ -43,12 +44,23 @@ class ChannelVideosStub extends React.Component {
         }
     }
 
+    /** Returns an array of div elements to act as placeholders */
+    getPlaceholders() {
+        return [
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>
+        ];
+    }
+
     render() {
         let store = this.props.store;
         return(
             <div className="videos-stub">
                 <SectionTitle title={ constants.TITLE_PAST_BROADCASTS } />
-                <div className="streams-list-wrapper">{ this.getVideosList(store.streamDataChannelVideos) }</div>
+                <div className="streams-list-wrapper">{ this.getVideosList(store.streamDataChannelVideos) }{ this.getPlaceholders() }</div>
             </div>
         );
     }

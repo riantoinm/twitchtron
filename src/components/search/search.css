@@ -37,11 +37,6 @@
     color: darkgrey;
 }
 
-.channel-logo-list-wrapper {
-    width: initial;
-    margin: auto;
-}
-
 #page-nav-search-form {
     margin: 10px auto;
     display: flex;

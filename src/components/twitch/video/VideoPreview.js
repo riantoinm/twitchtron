@@ -43,15 +43,15 @@ class VideoPreview extends React.Component {
 
     render() {
         return(
-            <div className="video-image-container" onClick={ this.handleLinkToChannel }>
+            <a className="video-image-container" onClick={ this.handleLinkToChannel }>
                 <div className="video-image-views-overlay">
                     <i className="material-icons video-views">visibility</i><p>{ numberWithCommas(this.props.views) }</p>
                 </div>
                 <div className="video-image-length-overlay">
                     <i className="material-icons video-length">schedule</i><p>{ formatTimeFromSeconds(this.props.videoLength) }</p>
                 </div>
-                <img className="video-image" src={ this.props.image } onError={ this.replaceMissingImage } />
-            </div>
+                <img className="video-image" id={ this.props.videoId } src={ this.props.image } onError={ this.replaceMissingImage } />
+            </a>
         );
     }
 }

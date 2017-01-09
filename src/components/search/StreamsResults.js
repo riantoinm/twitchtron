@@ -21,6 +21,7 @@ class StreamsResults extends React.Component {
 
         this.loadMoreContent = this.loadMoreContent.bind(this);
         this.getStreamsResultsList = this.getStreamsResultsList.bind(this);
+        this.getPlaceholders = this.getPlaceholders.bind(this);
         this.getRenderMarkup = this.getRenderMarkup.bind(this);
     }
 
@@ -69,6 +70,17 @@ class StreamsResults extends React.Component {
         }
     }
 
+    /** Returns an array of div elements to act as placeholders */
+    getPlaceholders() {
+        return [
+            <div key={ Math.random() } className="live-stream-placeholder"></div>,
+            <div key={ Math.random() } className="live-stream-placeholder"></div>,
+            <div key={ Math.random() } className="live-stream-placeholder"></div>,
+            <div key={ Math.random() } className="live-stream-placeholder"></div>,
+            <div key={ Math.random() } className="live-stream-placeholder"></div>
+        ];
+    }
+
     /** Returns markup to render based on stream data in the store, or a loading component if a network request is active */
     getRenderMarkup() {
         let store = this.props.store;
@@ -78,7 +90,7 @@ class StreamsResults extends React.Component {
             return(
                 <div className="scrollbar-inner">
                     <SectionTitle title={ `${ constants.TITLE_SEARCH_STREAMS_RESULTS } (${ numberWithCommas(store.streamDataTotals) })` } />
-                    <div className="streams-list-wrapper">{ this.getStreamsResultsList(store.streamData) }</div>
+                    <div className="streams-list-wrapper">{ this.getStreamsResultsList(store.streamData) }{ this.getPlaceholders() }</div>
                     <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
                 </div>
             );

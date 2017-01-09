@@ -23,28 +23,38 @@ class StreamEmbed extends React.Component {
     /** Returns markup for embedded stream of live channel specified by channel name */
     getLiveMarkup() {
         return(
-            <iframe
-                src={`http://player.twitch.tv/?channel=${ this.props.channelName }`}
-                frameBorder="0"
-                height="360px"
-                width="640px"
-                scrolling="no"
-                allowFullScreen="true">
-            </iframe>
+            <div className="stream-embed-container">
+                <div className="stream-embed-wrapper">
+                    <iframe
+                        className="stream-embed"
+                        src={`http://player.twitch.tv/?channel=${ this.props.channelName }`}
+                        frameBorder="0"
+                        height="360px"
+                        width="640px"
+                        scrolling="no"
+                        allowFullScreen="true">
+                    </iframe>
+                </div>
+            </div>
         );
     }
 
     /** Returns markup for embedded stream of past broadcast specified by video id */
     getPastBroadcastMarkup() {
         return(
-            <iframe
-                src={`http://player.twitch.tv/?video=${ this.props.videoId }`}
-                frameBorder="0"
-                height="360px"
-                width="640px"
-                scrolling="no"
-                allowFullScreen="true">
-            </iframe>
+            <div className="stream-embed-container">
+                <div className="stream-embed-wrapper">
+                    <iframe
+                        className="stream-embed"
+                        src={`http://player.twitch.tv/?video=${ this.props.videoId }`}
+                        frameBorder="0"
+                        height="360px"
+                        width="640px"
+                        scrolling="no"
+                        allowFullScreen="true">
+                    </iframe>
+                </div>
+            </div>
         );
     }
 

@@ -24,6 +24,7 @@ class TopResults extends React.Component {
         this.getChannelsResultsMarkup = this.getChannelsResultsMarkup.bind(this);
         this.getStreamsResultsMarkup = this.getStreamsResultsMarkup.bind(this);
         this.getGamesResultsMarkup = this.getGamesResultsMarkup.bind(this);
+        this.getPlaceholders = this.getPlaceholders.bind(this);
         this.getRenderMarkup = this.getRenderMarkup.bind(this);
     }
 
@@ -115,6 +116,41 @@ class TopResults extends React.Component {
         }
     }
 
+    /**
+     * Returns an array of div elements to act as placeholders
+     * @param { String } type - the type of placeholders to return. Acceptable values are "game", "channel", or "stream"
+     */
+    getPlaceholders(type) {
+        switch(type) {
+            case "game":
+                return [
+                    <div key={ Math.random() } className="game-placeholder"></div>,
+                    <div key={ Math.random() } className="game-placeholder"></div>,
+                    <div key={ Math.random() } className="game-placeholder"></div>,
+                    <div key={ Math.random() } className="game-placeholder"></div>,
+                    <div key={ Math.random() } className="game-placeholder"></div>,
+                    <div key={ Math.random() } className="game-placeholder"></div>
+                ];
+            case "channel":
+                return [
+                    <div key={ Math.random() } className="channel-placeholder"></div>,
+                    <div key={ Math.random() } className="channel-placeholder"></div>,
+                    <div key={ Math.random() } className="channel-placeholder"></div>,
+                    <div key={ Math.random() } className="channel-placeholder"></div>,
+                    <div key={ Math.random() } className="channel-placeholder"></div>,
+                    <div key={ Math.random() } className="channel-placeholder"></div>
+                ];
+            case "stream":
+                return [
+                    <div key={ Math.random() } className="live-stream-placeholder"></div>,
+                    <div key={ Math.random() } className="live-stream-placeholder"></div>,
+                    <div key={ Math.random() } className="live-stream-placeholder"></div>,
+                    <div key={ Math.random() } className="live-stream-placeholder"></div>,
+                    <div key={ Math.random() } className="live-stream-placeholder"></div>
+                ];
+        }
+    }
+
     /** Returns markup to render based on stream data in the store, or a loading component if a network request is active */
     getRenderMarkup() {
         let store = this.props.store;
@@ -125,11 +161,11 @@ class TopResults extends React.Component {
                 <div id="top-results-container" className="scrollbar-inner">
                     <SectionTitle title={ constants.TITLE_SEARCH_TOP_RESULTS } />
                     <h4 className="sub-title">LIVE</h4>
-                    <div className="streams-list-wrapper">{ this.getStreamsResultsMarkup(store.streamData.streams) }</div>
+                    <div className="streams-list-wrapper">{ this.getStreamsResultsMarkup(store.streamData.streams) }{ this.getPlaceholders("stream") }</div>
                     <h4 className="sub-title">CHANNELS</h4>
-                    <div className="channel-logo-list-wrapper">{ this.getChannelsResultsMarkup(store.streamData.channels) }</div>
+                    <div className="streams-list-wrapper">{ this.getChannelsResultsMarkup(store.streamData.channels) }{ this.getPlaceholders("channel") }</div>
                     <h4 className="sub-title">GAMES</h4>
-                    <div className="games-list-wrapper">{ this.getGamesResultsMarkup(store.streamData.games) }</div>
+                    <div className="streams-list-wrapper">{ this.getGamesResultsMarkup(store.streamData.games) }{ this.getPlaceholders("game") }</div>
                 </div>
             );
         }

@@ -14,6 +14,7 @@ import React from "react";
 import SearchForm from "../../search/SearchForm";
 import SectionTitle from "../../common/SectionTitle";
 import StreamActions from "../../../actions/streamActions";
+import StreamPlaybackActions from "../../../actions/streamPlaybackActions";
 import StreamEmbed from "./StreamEmbed";
 
 /** Defines a list of featured streams */
@@ -45,8 +46,12 @@ class FeaturedStreamsPage extends React.Component {
     /** Updates the store to specify that a request for an embedded stream has been made. Requests that an error be shown
      * in the snackbar if user is offline */
     startEmbedStream() {
-        if(this.props.store.isOnline) {
-            this.props.store.isWatchingEmbededStream = true;
+        let store = this.props.store;
+        if(store.isOnline) {
+            let channelName = store.streamData[0].stream.channel.name;
+            //this.props.store.isWatchingEmbededStream = true;
+            let streamPlaybackActionObj = new StreamPlaybackActions();
+            streamPlaybackActionObj.openStreamInApp(store, channelName);
         } else {
             let errorActionObj = new ErrorActions();
             errorActionObj.showSnackbar(`<i class="material-icons snackbar-icon">info_outline</i>You are currently offline`);
@@ -112,7 +117,7 @@ class FeaturedStreamsPage extends React.Component {
                     <CustomScroll id="scrollbars">
                         <div className="scrollbar-inner">
                             <SectionTitle title={ constants.TITLE_FEATURED_STREAMS } />
-                            <div className="main-stream-row">
+                            <div className="streams-list-wrapper" id="main-stream-row">
                                 { this.getMainStreamRow(parsedData) }
                                 <MainStreamInfo createdAt={ parsedData[0].stream.created_at }
                                                 displayName={ parsedData[0].stream.channel.display_name }
@@ -126,7 +131,7 @@ class FeaturedStreamsPage extends React.Component {
                                                 store={ store }
                                 />
                             </div>
-                            <div id="non-main-stream-row">
+                            <div className="streams-list-wrapper" id="non-main-stream-row">
                                 { this.getNonMainStreamRow(parsedData) }
                             </div>
                         </div>

@@ -22,6 +22,7 @@ class GameListContainer extends React.Component {
 
         this.loadMoreContent = this.loadMoreContent.bind(this);
         this.getGamesList = this.getGamesList.bind(this);
+        this.getPlaceholders = this.getPlaceholders.bind(this);
         this.getRenderMarkup = this.getRenderMarkup.bind(this);
     }
 
@@ -83,6 +84,18 @@ class GameListContainer extends React.Component {
         }
     }
 
+    /** Returns an array of div elements to act as placeholders */
+    getPlaceholders() {
+        return [
+            <div key={ Math.random() } className="game-placeholder"></div>,
+            <div key={ Math.random() } className="game-placeholder"></div>,
+            <div key={ Math.random() } className="game-placeholder"></div>,
+            <div key={ Math.random() } className="game-placeholder"></div>,
+            <div key={ Math.random() } className="game-placeholder"></div>,
+            <div key={ Math.random() } className="game-placeholder"></div>
+        ];
+    }
+
     /** Returns markup to render based on stream data in the store, or a loading component if a network request is active */
     getRenderMarkup() {
         let store = this.props.store;
@@ -102,7 +115,7 @@ class GameListContainer extends React.Component {
                 <CustomScroll id="scrollbars">
                     <div className="top-games-row scrollbar-inner">
                         <SectionTitle title={ sectionTitle } />
-                        <div className="streams-list-wrapper">{ this.getGamesList(parsedData) }</div>
+                        <div className="streams-list-wrapper">{ this.getGamesList(parsedData) }{ this.getPlaceholders() }</div>
                     </div>
                     <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
                 </CustomScroll>

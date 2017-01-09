@@ -22,6 +22,7 @@ class LiveStreamsContainer extends React.Component {
 
         this.loadMoreContent = this.loadMoreContent.bind(this);
         this.getStreamsList = this.getStreamsList.bind(this);
+        this.getPlaceholders = this.getPlaceholders.bind(this);
         this.getSectionTitle = this.getSectionTitle.bind(this);
         this.getRenderMarkup = this.getRenderMarkup.bind(this);
     }
@@ -106,6 +107,17 @@ class LiveStreamsContainer extends React.Component {
         }
     }
 
+    /** Returns an array of div elements to act as placeholders */
+    getPlaceholders() {
+        return [
+            <div key={ Math.random() } className="live-stream-placeholder"></div>,
+            <div key={ Math.random() } className="live-stream-placeholder"></div>,
+            <div key={ Math.random() } className="live-stream-placeholder"></div>,
+            <div key={ Math.random() } className="live-stream-placeholder"></div>,
+            <div key={ Math.random() } className="live-stream-placeholder"></div>
+        ];
+    }
+
     /** Returns section title based on whether the list is being rendered in the Homepage or whether the streams are for
      * a specified game, or just top streams */
     getSectionTitle() {
@@ -135,7 +147,7 @@ class LiveStreamsContainer extends React.Component {
                 <CustomScroll id="scrollbars">
                     <div className="scrollbar-inner">
                         <SectionTitle title={ sectionTitle } />
-                        <div className="streams-list-wrapper">{ this.getStreamsList(parsedData) }</div>
+                        <div className="streams-list-wrapper">{ this.getStreamsList(parsedData) }{ this.getPlaceholders() }</div>
                         <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
                     </div>
                 </CustomScroll>

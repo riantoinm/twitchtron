@@ -38,9 +38,9 @@ class GamePreview extends React.Component {
 
     render() {
         return(
-            <div className="game-image-container" onClick={ this.handleLinkToStreams }>
-                <img className="game-image" src={ this.props.image } onError={ this.replaceMissingImage } />
-            </div>
+            <a className="game-image-container" onClick={ this.handleLinkToStreams }>
+                <img className="game-image" id={ this.props.gameName } src={ this.props.image } onError={ this.replaceMissingImage } />
+            </a>
         );
     }
 }

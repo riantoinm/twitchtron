@@ -20,6 +20,8 @@ class ChannelVideosPage extends React.Component {
         super(props);
 
         this.loadMoreContent = this.loadMoreContent.bind(this);
+        this.getVideosList = this.getVideosList.bind(this);
+        this.getPlaceholders = this.getPlaceholders.bind(this);
         this.getRenderMarkup = this.getRenderMarkup.bind(this);
     }
 
@@ -71,6 +73,17 @@ class ChannelVideosPage extends React.Component {
         }
     }
 
+    /** Returns an array of div elements to act as placeholders */
+    getPlaceholders() {
+        return [
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>
+        ];
+    }
+
     /** Returns markup to render based on stream data in the store, or a loading component if a network request is active */
     getRenderMarkup() {
         let store = this.props.store;
@@ -80,7 +93,7 @@ class ChannelVideosPage extends React.Component {
             return(
                 <div className="videos-row scrollbar-inner">
                     <SectionTitle title={ `${ constants.TITLE_PAST_BROADCASTS } (${ numberWithCommas(this.props.store.streamDataTotals) })` } />
-                    <div className="streams-list-wrapper">{ this.getVideosList(store.streamDataChannelVideos) }</div>
+                    <div className="streams-list-wrapper">{ this.getVideosList(store.streamDataChannelVideos) }{ this.getPlaceholders() }</div>
                     <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
                 </div>
             );

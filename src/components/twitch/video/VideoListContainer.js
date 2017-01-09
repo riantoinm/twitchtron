@@ -21,6 +21,7 @@ class VideoListContainer extends React.Component {
 
         this.loadMoreContent = this.loadMoreContent.bind(this);
         this.getVideosList = this.getVideosList.bind(this);
+        this.getPlaceholders = this.getPlaceholders.bind(this);
         this.getRenderMarkup = this.getRenderMarkup.bind(this);
     }
 
@@ -71,6 +72,17 @@ class VideoListContainer extends React.Component {
         }
     }
 
+    /** Returns an array of div elements to act as placeholders */
+    getPlaceholders() {
+        return [
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>,
+            <div key={ Math.random() } className="video-placeholder"></div>
+        ];
+    }
+
     /** Returns markup to render based on stream data in the store, or a loading component if a network request is active */
     getRenderMarkup() {
         let store = this.props.store;
@@ -81,7 +93,7 @@ class VideoListContainer extends React.Component {
                 <CustomScroll id="scrollbars">
                     <div className="videos-row scrollbar-inner">
                         <SectionTitle title={ constants.TITLE_TOP_VIDEOS } />
-                        <div className="streams-list-wrapper">{ this.getVideosList(store.streamData) }</div>
+                        <div className="streams-list-wrapper">{ this.getVideosList(store.streamData) }{ this.getPlaceholders() }</div>
                     </div>
                     <LoadingOffsetComponent loadMoreContent={ this.loadMoreContent } store={ store } />
                 </CustomScroll>
